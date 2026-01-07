@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seraph's Last Stand - Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="ui-layer">
+            <div id="hud">
+                <div class="stat">HP: <span id="hp-val">100</span></div>
+                <div class="stat">Wave: <span id="wave-val">1</span></div>
+                <div class="stat">Soul Orbs: <span id="souls-val">0</span></div>
+            </div>
+
+            <div id="start-screen" class="overlay">
+                <h1>SERAPH'S LAST STAND</h1>
+                <p>Clone em HTML5/JS</p>
+                <button id="start-btn">JOGAR</button>
+            </div>
+
+            <div id="upgrade-screen" class="overlay hidden">
+                <h2>ESCOLHA UM UPGRADE</h2>
+                <div id="card-container">
+                </div>
+            </div>
+
+            <div id="game-over-screen" class="overlay hidden">
+                <h1>FIM DE JOGO</h1>
+                <p>Você sobreviveu até a Wave <span id="final-wave">1</span></p>
+                <button id="restart-btn">RECOMEÇAR</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --bg-color: #050505;
+    --text-color: #f0f0f0;
+    --accent-color: #9d4edd;
+    --accent-glow: rgba(157, 78, 221, 0.5);
+    --card-bg: rgba(20, 20, 20, 0.9);
+    --hp-color: #ff0054;
+    --soul-color: #00f2ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    background-color: #000;
+    color: var(--text-color);
+    font-family: 'Press Start 2P', cursive;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#game-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.8), 0 0 20px var(--accent-glow);
+    border: 2px solid #1a1a1a;
+    cursor: crosshair;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#hud {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    z-index: 100;
+}
+
+.stat {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent-color);
+    backdrop-filter: blur(5px);
+}
+
+#hp-val {
+    color: var(--hp-color);
+}
+
+#souls-val {
+    color: var(--soul-color);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(15, 10, 25, 0.9) 0%, rgba(5, 5, 5, 0.98) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    z-index: 10;
+    transition: all 0.5s ease;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+h1 {
+    font-size: 64px;
+    margin-bottom: 30px;
+    color: #fff;
+    text-shadow: 0 0 20px var(--accent-color), 0 0 40px var(--accent-color);
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+p {
+    margin-bottom: 50px;
+    font-size: 14px;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+button {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: #fff;
+    padding: 20px 50px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+button:hover {
+    background: var(--accent-color);
+    box-shadow: 0 0 30px var(--accent-color);
+    transform: scale(1.05);
+}
+
+#card-container {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.card {
+    width: 260px;
+    height: 380px;
+    background: var(--card-bg);
+    border: 2px solid #333;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-20px);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 40px var(--accent-glow);
+}
+
+.card-title {
+    font-size: 14px;
+    margin-bottom: 25px;
+    color: #fff;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-desc {
+    font-size: 10px;
+    line-height: 1.8;
+    color: #bbb;
+}
+
+.card-icon {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card-icon::after {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
