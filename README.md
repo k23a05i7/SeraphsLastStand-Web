@@ -2,7 +2,7 @@
 
 Este projeto é uma recriação do jogo "Seraph's Last Stand", desenvolvida como parte da disciplina de **Informática Aplicada à Web**.
 
-**Aluno:** Kaio
+**Alunos:** Kaio, Isaac, Giovane, Camila
 
 ## 🎮 Sobre o Jogo
 
